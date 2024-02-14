@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/42c-CSharp-demo.props" />
+</Project>
