@@ -4,17 +4,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<TodoDb>(opt => opt.UseInMemoryDatabase("TodoList"));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-
+// find endpoints for OpenAPi Spec
 builder.Services.AddEndpointsApiExplorer();
+// add OAS generator lib to 
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-
+// using the swagger generator only in development
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+
 }
 
 app.MapGet("/todoitems", async (TodoDb db) =>
